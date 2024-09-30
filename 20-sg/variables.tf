@@ -20,6 +20,7 @@ variable "sg_tags" {
     component = "Mysql"
   }
 }
+
 variable "vpc_tags" {
   default = {
     number-of-subnets = 2
@@ -40,4 +41,16 @@ variable "database_subnet_cidrblocks" {
 
 variable "is_peering_required" {
   default = true
+}
+
+variable "backend_sg_tags" {
+  default = {
+    component = "Backend"
+  }
+}
+
+variable "frontend_sg_tags" {
+  default = {
+    component = "Frontend"
+  }
 }
