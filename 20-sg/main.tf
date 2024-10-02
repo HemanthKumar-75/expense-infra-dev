@@ -1,6 +1,6 @@
 module "mysql_sg" {
-  # source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
-  source = "../../terraform-aws-security-group"
+  source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
+  # source = "../../terraform-aws-security-group"
   envinronment = var.envinronment
   project_name = var.project
   security_group = "Mysql"
@@ -10,8 +10,8 @@ module "mysql_sg" {
 }
 
 module "backend_sg" {
-  # source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
-  source = "../../terraform-aws-security-group"
+  source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
+  # source = "../../terraform-aws-security-group"
   envinronment = var.envinronment
   project_name = var.project
   security_group = "Backend"
@@ -21,8 +21,8 @@ module "backend_sg" {
 }
 
 module "frontend_sg" {
-  # source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
-  source = "../../terraform-aws-security-group"
+  source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
+  # source = "../../terraform-aws-security-group"
   envinronment = var.envinronment
   project_name = var.project
   security_group = "frontend"
@@ -32,8 +32,8 @@ module "frontend_sg" {
 }
 
 module "bastion_sg" {
-  # source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
-  source = "../../terraform-aws-security-group"
+  source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
+  # source = "../../terraform-aws-security-group"
   envinronment = var.envinronment
   project_name = var.project
   security_group = "bastion"
@@ -43,8 +43,8 @@ module "bastion_sg" {
 }
 
 module "ansible_sg" {
-  # source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
-  source = "../../terraform-aws-security-group"
+  source = "git::https://github.com/HemanthKumar-75/terraform-aws-security-group.git?ref=main"
+  # source = "../../terraform-aws-security-group"
   envinronment = var.envinronment
   project_name = var.project
   security_group = "ansible"
