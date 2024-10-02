@@ -54,3 +54,16 @@ variable "frontend_sg_tags" {
     component = "Frontend"
   }
 }
+
+variable "bastion_sg_tags" {
+  default = {
+    component = "bastion"
+  }
+}
+
+variable "ansible_sg_tags" {
+  default = {
+    component = "ansible"
+    description = "for connection to other servers"
+  }
+}
