@@ -115,7 +115,7 @@ module "records" {
       type    = "A"
       ttl     = 1
       records = [
-        module.frontend.private_ip
+        module.frontend.public_ip
       ]
     }
   ]
