@@ -13,7 +13,7 @@ module "mysql" {
     var.common_tags,
     var.mysql_tags,
     {
-        Name = "${local.resource_name}-MySql"
+      Name = "${local.resource_name}-MySql"
     }
   )
 }
@@ -33,7 +33,7 @@ module "backend" {
     var.common_tags,
     var.backend_tags,
     {
-        Name = "${local.resource_name}-backend"
+      Name = "${local.resource_name}-backend"
     }
   )
 }
@@ -53,7 +53,7 @@ module "frontend" {
     var.common_tags,
     var.frontend_tags,
     {
-        Name = "${local.resource_name}-frontend"
+      Name = "${local.resource_name}-frontend"
     }
   )
 }
@@ -68,52 +68,52 @@ module "ansible" {
   #   monitoring             = true
   vpc_security_group_ids = [local.ansible_sg_id]
   subnet_id              = local.public_subnet_id
-  user_data = file("expense.sh")
+  user_data              = file("expense.sh")
 
   tags = merge(
     var.common_tags,
     var.ansible_tags,
     {
-        Name = "${local.resource_name}-ansible"
+      Name = "${local.resource_name}-ansible"
     }
   )
 }
 
 module "records" {
-  source  = "terraform-aws-modules/route53/aws//modules/records"
+  source = "terraform-aws-modules/route53/aws//modules/records"
   # version = "~> 3.0"
 
   zone_name = var.zone_name
 
   records = [
     {
-      name    = "mysql"
-      type    = "A"
-      ttl     = 1
+      name = "mysql"
+      type = "A"
+      ttl  = 1
       records = [
         module.mysql.private_ip
       ]
     },
     {
-      name    = "backend"
-      type    = "A"
-      ttl     = 1
+      name = "backend"
+      type = "A"
+      ttl  = 1
       records = [
         module.backend.private_ip
       ]
     },
     {
-      name    = "frontend"
-      type    = "A"
-      ttl     = 1
+      name = "frontend"
+      type = "A"
+      ttl  = 1
       records = [
         module.frontend.private_ip
       ]
     },
-        {
-      name    = "frontend"
-      type    = "A"
-      ttl     = 1
+    {
+      name = ""
+      type = "A"
+      ttl  = 1
       records = [
         module.frontend.public_ip
       ]
