@@ -79,7 +79,7 @@ resource "aws_security_group_rule" "frontend_public" {
   protocol          = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
   # source_security_group_id = module.frontend_sg.id
-  security_group_id = module.backend_sg.id
+  security_group_id = module.frontend_sg.id
 }
 
 resource "aws_security_group_rule" "mysql_bastion" {
@@ -107,6 +107,16 @@ resource "aws_security_group_rule" "frontend_bastion" {
   protocol          = "tcp"
   source_security_group_id = module.bastion_sg.id
   security_group_id = module.frontend_sg.id
+}
+
+resource "aws_security_group_rule" "bastion_public" {
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+  # source_security_group_id = module.frontend_sg.id
+  security_group_id = module.bastion_sg.id
 }
 
 resource "aws_security_group_rule" "mysql_ansible" {
