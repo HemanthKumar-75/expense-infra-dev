@@ -111,8 +111,8 @@ resource "aws_security_group_rule" "frontend_bastion" {
 
 resource "aws_security_group_rule" "bastion_public" {
   type              = "ingress"
-  from_port         = 80
-  to_port           = 80
+  from_port         = 22
+  to_port           = 22
   protocol          = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
   # source_security_group_id = module.frontend_sg.id
