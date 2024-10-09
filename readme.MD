@@ -1,1 +1,1 @@
-![alt text](images/expense-sg-rules.svg)
+![alt text](expense-sg-rules.svg)
